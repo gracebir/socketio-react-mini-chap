@@ -1,0 +1,32 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "chat backend",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"nodemon main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gracebir/socketio-react-mini-chap.git"
+  },
+  "keywords": [
+    "es6",
+    "babel"
+  ],
+  "author": "me",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gracebir/socketio-react-mini-chap/issues"
+  },
+  "homepage": "https://github.com/gracebir/socketio-react-mini-chap#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "socket.io": "^4.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
