@@ -2,10 +2,27 @@ const express = require('express');
 const http = require('http');
 const cors = require('cors');
 const { Server } = require('socket.io')
+require('dotenv').config();
+const path = require('path');
+
 
 const app = express()
 
 app.use(cors())
+
+
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static(path.join(__dirname, '../client/build')));
+
+  app.get("/",(req,res)=>{
+      res.sendFile(path.join(__dirname,'client','build','index.html'))
+  })
+} else {
+  app.get('/', (req,res)=>{
+      res.send('Api running');
+  })
+}
+
 
 const server = http.createServer(app);
 
@@ -34,6 +51,9 @@ io.on("connection", (socket) => {
   });
   
 
-server.listen(3001,()=>{
+
+  const port = process.env.PORT || 3001;
+
+server.listen(port,()=>{
     console.log("server running")
 })
